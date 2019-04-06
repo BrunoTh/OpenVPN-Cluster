@@ -9,11 +9,11 @@ If one server goes down the client tries to connect to the next server in the li
 to which they're connected. This is done by advertising the client's ip address to the cluster network (via broadcast). 
 The entries for the routing table are added dynamically in each container.
 
-# Requirements
+## Requirements
 * All containers have to be in the same subnet.
 * The server configuration and pki stuff must be shared between the containers.
 
-# How to
+## How to
 * Initialize the openvpn server (read [Kyle's guide](https://github.com/kylemanna/docker-openvpn/blob/master/README.md))
 * Edit the openvpn server config:
   ```
@@ -32,11 +32,11 @@ The entries for the routing table are added dynamically in each container.
   ```
   The ip range and subnet are set in the server config.
 
-# Test setup
+## Test setup
 For testing purpose I started three containers usign the docker-compose.yml where every container has the same volume 
 mounted to `/etc/openvpn/`. So I had three identical servers. The containers are connected to the compose network via interface
 eth0.
 
-# TODO
+## TODO
 * Figure out how to dynamically write the list of servers into the client config.
 * Dynamic client ip address assigment.
