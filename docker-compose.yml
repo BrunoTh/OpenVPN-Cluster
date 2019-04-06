@@ -1,0 +1,32 @@
+version: '2'
+volumes:
+  openvpn_etc:
+services:
+  ovpn_1:
+    build: .
+    image: openvpn-cluster
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - openvpn_etc:/etc/openvpn
+    ports:
+      - "1194:1194"
+  ovpn_2:
+    build: .
+    image: openvpn-cluster
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - openvpn_etc:/etc/openvpn
+    ports:
+      - "1195:1194"
+  ovpn_3:
+    build: .
+    image: openvpn-cluster
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - openvpn_etc:/etc/openvpn
+    ports:
+      - "1196:1194"
+
